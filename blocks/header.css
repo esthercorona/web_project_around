@@ -1,0 +1,26 @@
+.header {
+  text-align: center;
+  padding: 2rem 0 1rem;
+}
+
+.header__logo {
+  width: 40%;
+  max-width: 254.84px;
+  height: auto;
+  margin: 0 auto 0.5rem;
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .header__logo {
+    width: 254.84px;
+  }
+}
+
+.header__title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}

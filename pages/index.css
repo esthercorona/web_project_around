@@ -1,0 +1,16 @@
+/* Normalización del estilo base del navegador */
+@import url("../vendor/normalize.css");
+
+/* Fuentes personalizadas (si tienes fonts.css configurado) */
+@import url("../fonts/fonts.css");
+
+@import url("../blocks/page.css");
+
+
+/* Estilos por bloques (BEM) */
+@import url("../blocks/header.css");
+@import url("../blocks/profile.css");
+@import url("../blocks/memories.css");
+@import url("../blocks/footer.css");
+
+/* Puedes agregar más bloques a medida que los construyas */
