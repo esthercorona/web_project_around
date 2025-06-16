@@ -1,0 +1,83 @@
+.memories {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+.memories__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 282px;
+  height: auto; 
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.memories__item {
+  width: 282px;
+  height: 361px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  color: #000;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.memories__image {
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: block;
+}
+
+.memories__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #ffffff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.memories__title {
+  font-family: Inter, sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 100%;
+  letter-spacing: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.memories__icon {
+  width: 24px;
+  height: 24px;
+  background-image: url("../images/corazoncito.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* TABLET */
+@media screen and (min-width: 758px) {
+  .memories__container {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    max-width: 880px;
+  }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1280px) {
+  .memories__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -5,3 +5,6 @@
 @import url("../blocks/profile.css");
 @import url("../blocks/memories.css");
 @import url("../blocks/footer.css");
+@import url("../blocks/main.css");
+@import url("../blocks/modal.css"); /*botón JS*/
+
