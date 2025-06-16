@@ -1,5 +1,3 @@
-// Verificación de funcionalidad del modal
-
 let modal = document.getElementById("edit-profile-modal");
 let openModalButton = document.querySelector(".profile__edit-button");
 let closeModalButton = modal.querySelector(".modal__close-button");
@@ -9,33 +7,54 @@ let aboutInput = form.elements.about;
 let profileName = document.querySelector(".profile__name");
 let profileDescription = document.querySelector(".profile__description");
 
-// Verificar que los elementos existen
-console.log({ modal, openModalButton, closeModalButton, form, nameInput, aboutInput, profileName, profileDescription });
-
-// Función para abrir modal
 function abrirFormulario() {
-  nameInput.value = profileName.textContent;
-  aboutInput.value = profileDescription.textContent;
+  nameInput.value = "";
+  aboutInput.value = "";
   modal.classList.add("modal_opened");
-  console.log("Modal abierto");
 }
 
-// Función para cerrar modal
 function cerrarFormulario() {
   modal.classList.remove("modal_opened");
-  console.log("Modal cerrado");
 }
 
-// Guardar cambios del formulario
 function guardarFormulario(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileDescription.textContent = aboutInput.value;
   cerrarFormulario();
-  console.log("Formulario guardado");
 }
 
-// Eventos seguros (solo si los botones existen)
-if (openModalButton) openModalButton.addEventListener("click", abrirFormulario);
-if (closeModalButton) closeModalButton.addEventListener("click", cerrarFormulario);
-if (form) form.addEventListener("submit", guardarFormulario);
+openModalButton.addEventListener("click", abrirFormulario);
+closeModalButton.addEventListener("click", cerrarFormulario);
+form.addEventListener("submit", guardarFormulario);
+
+
+let addModal = document.getElementById("add-memory-modal");
+let openAddButton = document.querySelector(".profile__add-button");
+let closeAddButton = addModal.querySelector(".modal__close-button");
+let addForm = addModal.querySelector(".modal__form");
+
+
+function abrirAgregarModal() {
+  addForm.reset(); 
+  addModal.classList.add("modal_opened");
+}
+
+function cerrarAgregarModal() {
+  addModal.classList.remove("modal_opened");
+}
+
+function guardarNuevoRecuerdo(evt) {
+  evt.preventDefault();
+  const lugar = addForm.elements.place.value;
+  const imagen = addForm.elements.image.value;
+
+  console.log("Lugar:", lugar);
+  console.log("Imagen:", imagen);
+
+  cerrarAgregarModal();
+}
+
+openAddButton.addEventListener("click", abrirAgregarModal);
+closeAddButton.addEventListener("click", cerrarAgregarModal);
+addForm.addEventListener("submit", guardarNuevoRecuerdo);

@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alrededor de los EE.UU</title>
+  <title>Alrededor de Japón</title>
   <link rel="stylesheet" href="vendor/normalize.css">
   <link rel="stylesheet" href="pages/index.css">
 </head>
 
 <body>
   <header class="header">
-     <img src="../images/Around_the_US.svg" alt="Around the US" class="logo_header">
+     <img src="./images/Around_Japan.svg" alt="Around Japan" class="logo_header">
   </header>
 
   <main class="main">
@@ -80,8 +80,7 @@
   </div>
 </section>
 
-</main> <!--VA ANTES DE EMPEZAR JS, CIERTO??-->
-
+</main> 
 
 <div class="modal" id="edit-profile-modal">
   <div class="modal__content">
@@ -89,18 +88,34 @@
     <h2 class="modal__title">Editar perfil</h2>
     <form class="modal__form" name="edit-profile">
       <input type="text" name="name" placeholder="Nombre" class="modal__input" required>
-      <input type="text" name="about" placeholder="Descripción" class="modal__input" required>
+      <input type="text" name="about" placeholder="Acerca de mí" class="modal__input" required>
       <button type="submit" class="modal__save-button">Guardar</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="add-memory-modal">
+  <div class="modal__content">
+    <button class="modal__close-button" aria-label="Cerrar formulario"></button>
+    <h2 class="modal__title">Nuevo recuerdo</h2>
+    <form class="modal__form" name="add-memory">
+      <textarea name="place" placeholder="¿Qué estás pensando?" class="modal__input" required></textarea>
+
+      <button type="button" class="modal__upload-button">
+        <img src="./images/upload.svg" alt="Subir imagen" class="modal__upload-icon">
+        Subir imagen
+      </button>
+
+      <button type="submit" class="modal__save-button">Compartir</button>
     </form>
   </div>
 </div>
 
 
 
-  <!-- Footer -->
-  <footer class="footer">
-    <!-- Derechos de autor -->
-  </footer>
+   <footer class="footer">
+        <p>&copy; 2025. Around Japan</p>
+      </footer>
 
 <script src="./index.js"></script>
 

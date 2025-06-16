@@ -1,0 +1,105 @@
+/* BLOQUE CSS PARA EL MODAL: add-memory-modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal_opened {
+  display: flex;
+}
+
+.modal__content {
+  background-color: #ffffff;
+  width: 282px;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: visible;
+}
+
+.modal__close-button {
+  position: absolute;
+  top: -24px;
+  right: -24px;
+  width: 40px;
+  height: 40px;
+  background: transparent url("../images/close.svg") center/contain no-repeat;
+  background-size: 100% 100%;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.modal__title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 20px;
+  font-family: Inter, sans-serif;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal__input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  padding: 10px 0;
+  font-family: Inter, sans-serif;
+}
+
+.modal__upload-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 4px;
+  height: 50px;
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  color: #000;
+}
+
+.modal__upload-button:hover {
+  background-color: #f0f0f0;
+  border-color: #1db954; /* verde referencia */
+}
+
+.modal__upload-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.modal__save-button {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.modal__save-button:hover {
+  background-color: #222222;
+}
