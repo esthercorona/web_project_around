@@ -92,77 +92,79 @@
 }
 
 @media screen and (min-width: 758px) {
-  .profile {
-    margin-bottom: 32px;
-    width: 100%;
-  }
-
   .profile__container {
     display: grid;
-    grid-template-columns: 168.75px 1fr 150px;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "avatar name add"
-      "avatar description add";
-    column-gap: 24px;
-    row-gap: 6px;
+    grid-template-columns: 168.75px 1fr 50px;
+    grid-template-areas: "avatar info add";
+    align-items: center;
     width: 880px;
     margin: 0 auto;
-    align-items: center;
+    column-gap: 24px;
   }
 
   .profile__avatar-wrapper {
     grid-area: avatar;
+    width: 168.75px;
+    height: 127.5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 168.75px;
-    height: 127.5px;
   }
 
   .profile__avatar {
     width: 127.5px;
     height: 127.5px;
-    object-fit: cover;
     border-radius: 50%;
+    object-fit: cover;
   }
 
   .profile__name-wrapper {
+    grid-area: info;
+    display: grid;
+    grid-template-columns: auto 18px;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "name edit"
+      "desc desc";
+    align-items: center;
+    gap: 8px;
+  }
+
+  .profile__name {
     grid-area: name;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0;
     display: flex;
     align-items: center;
     gap: 10px;
   }
 
-  .profile__name {
-    font-size: 22px;
-    font-weight: 500;
-    margin: 0;
-    color: #ffffff;
-  }
-
   .profile__edit-button {
+    grid-area: edit;
     width: 18px;
     height: 18px;
-    background: transparent url("../images/Vector.svg") center/contain no-repeat;
-    background-size: 12px 12px;
+    background-color: transparent;
     border: 1px solid #ffffff;
-    cursor: pointer;
+    background-image: url("../images/Vector.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px 12px;
     padding: 0;
+    cursor: pointer;
   }
 
   .profile__description {
-    grid-area: description;
+    grid-area: desc;
     font-size: 14px;
     font-weight: 400;
     margin: 0;
-    color: #ffffff;
     text-align: left;
   }
 
   .profile__add-button {
     grid-area: add;
-    width: 150px;
+    width: 50px;
     height: 50px;
     display: flex;
     align-items: center;
@@ -174,6 +176,5 @@
     color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin: 0;
   }
 }
