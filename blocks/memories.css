@@ -66,18 +66,55 @@
   background-size: contain;
 }
 
-/* TABLET */
+.memories__icon {
+  width: 24px;
+  height: 24px;
+  background-image: url("../images/corazoncito.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.memories__icon:hover {
+  opacity: 0.6;
+}
+
+.memories__icon--active {
+  background-image: url("../images/corazoncito-activo.svg");
+}
+
+
+/* Responsive layout for .memories section */
+.memories {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.memories__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 880px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
 @media screen and (min-width: 758px) {
   .memories__container {
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
-    max-width: 880px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
   }
 }
 
-/* DESKTOP */
 @media screen and (min-width: 1280px) {
+  .memories {
+    padding: 40px 0;
+  }
   .memories__container {
-    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
   }
 }

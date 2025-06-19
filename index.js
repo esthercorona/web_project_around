@@ -58,3 +58,11 @@ function guardarNuevoRecuerdo(evt) {
 openAddButton.addEventListener("click", abrirAgregarModal);
 closeAddButton.addEventListener("click", cerrarAgregarModal);
 addForm.addEventListener("submit", guardarNuevoRecuerdo);
+
+
+// corazoncito
+document.querySelectorAll('.memories__icon').forEach((icon) => {
+  icon.addEventListener('click', () => {
+    icon.classList.toggle('memories__icon--active');
+  });
+});

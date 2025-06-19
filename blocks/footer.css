@@ -4,3 +4,13 @@
   color: white;
   font-size: 0.9rem;
 }
+@media screen and (min-width: 758px) {
+  .footer {
+    width: 880px;
+    margin: 0 auto;
+    padding: 40px 0;
+    color: #ccc;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+  }
+}

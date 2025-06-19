@@ -91,36 +91,33 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-
-/* PROFILE DESKTOP/TABLET LAYOUT USING GRID */
 @media screen and (min-width: 758px) {
   .profile {
-    display: flex;
-    justify-content: center;
-    padding: 0;
+    margin-bottom: 32px;
+    width: 100%;
   }
 
   .profile__container {
     display: grid;
-    grid-template-columns: 168.75px 1fr 282px;
-    grid-template-areas: 
-      "avatar info button";
-    align-items: center;
-    width: 880px;
-    height: 127.5px; /* matches avatar height */
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
+    grid-template-columns: 168.75px 1fr 150px;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "avatar name add"
+      "avatar description add";
     column-gap: 24px;
+    row-gap: 6px;
+    width: 880px;
+    margin: 0 auto;
+    align-items: center;
   }
 
   .profile__avatar-wrapper {
     grid-area: avatar;
-    width: 168.75px;
-    height: 127.5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 168.75px;
+    height: 127.5px;
   }
 
   .profile__avatar {
@@ -131,41 +128,27 @@
   }
 
   .profile__name-wrapper {
-    grid-area: info;
-    display: grid;
-    grid-template-columns: auto 18px;
-    grid-template-rows: 39px 14px;
-    grid-template-areas:
-      "name edit"
-      "description description";
-    column-gap: 10px;
-    row-gap: 6px;
-    width: 415px;
-    height: 77px;
+    grid-area: name;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
   .profile__name {
-    grid-area: name;
     font-size: 22px;
     font-weight: 500;
     margin: 0;
-    height: 39px;
-    text-align: left;
-    width: 373px;
+    color: #ffffff;
   }
 
   .profile__edit-button {
-    grid-area: edit;
     width: 18px;
     height: 18px;
-    border: 1px solid #ffffff;
-    background-color: transparent;
-    background-image: url("../images/Vector.svg");
-    background-repeat: no-repeat;
-    background-position: center;
+    background: transparent url("../images/Vector.svg") center/contain no-repeat;
     background-size: 12px 12px;
-    padding: 0;
+    border: 1px solid #ffffff;
     cursor: pointer;
+    padding: 0;
   }
 
   .profile__description {
@@ -173,12 +156,13 @@
     font-size: 14px;
     font-weight: 400;
     margin: 0;
+    color: #ffffff;
     text-align: left;
   }
 
   .profile__add-button {
-    grid-area: button;
-    width: 50px;
+    grid-area: add;
+    width: 150px;
     height: 50px;
     display: flex;
     align-items: center;
@@ -190,5 +174,6 @@
     color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin: 0;
   }
 }
