@@ -1,88 +1,81 @@
+.profile {
+  padding: 0 19px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 42px;
+  margin-bottom: 36px;
+}
+
 .profile__container {
-  display: grid;
-  grid-template-rows: 127.5px 22px 14px 50px;
-  grid-row-gap: 18px;
-  justify-items: center;
-  width: 282px;
-  height: 286px;
-  margin-left: 24px;
-  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .profile__avatar-wrapper {
-  width: 168.75px;
-  height: 127.5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 26px;
 }
 
 .profile__avatar {
-  width: 127.5px; 
-  height: 127.5px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .profile__name-wrapper {
+  text-align: center;
+}
+
+.profile__title-row {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  width: 100%;
+  flex-wrap: nowrap;
 }
 
 .profile__name {
-  margin: 0;
-  width: 196px;
-  height: 22px;
-  font-family: Inter;
+  font-size: 27px;
   font-weight: 500;
-  font-size: 22px;
-  line-height: 100%;
-  text-align: center;
-  color: #ffffff;
+  margin: 0;
+  color: white;
 }
 
 .profile__edit-button {
-  width: 18px;
-  height: 18px;
-  border: 1px solid #ffffff;
-  background-color: transparent;
-  cursor: pointer;
-  background-image: url("../images/Vector.svg"); 
+  width: 24px;
+  height: 24px;
+  background-image: url("../images/Vector.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 12px 12px;
-  padding: 0;
+  background-size: cover;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
-.profile__edit-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
 
 .profile__description {
-  width: 282px;
-  height: 14px;
-  font-family: Inter;
-  font-weight: 400;
   font-size: 14px;
-  line-height: 100%;
-  text-align: center;
-  margin: 0;
-  color: #ffffff;
+  line-height: 1.2;
+  margin: 7px 0 24px;
+  color: #ffffffb3;
 }
 
 .profile__add-button {
-  width: 282px;
-  height: 50px;
-  background-color: transparent;
-  margin: 2px;
-  border:2px solid #ffffff;
-  border-radius: 2px;
-  color: #ffffff;
+  width: 100%;
+  max-width: 282px;
+  padding: 10px;
   font-size: 24px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 2px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -100,63 +93,42 @@
   .profile__container {
     display: grid;
     grid-template-columns: 168.75px 1fr 150px;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "avatar name add"
-      "avatar description add";
+    grid-template-areas: "avatar name add";
     column-gap: 24px;
-    row-gap: 6px;
     width: 880px;
+    height: 120px;
     margin: 0 auto;
     align-items: center;
   }
 
   .profile__avatar-wrapper {
     grid-area: avatar;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 168.75px;
-    height: 127.5px;
-  }
-
-  .profile__avatar {
-    width: 127.5px;
-    height: 127.5px;
-    object-fit: cover;
-    border-radius: 50%;
+    height: 100%;
+    align-self: center;
   }
 
   .profile__name-wrapper {
     grid-area: name;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    align-self: center;
+  }
+
+  .profile__title-row {
     display: flex;
     align-items: center;
     gap: 10px;
   }
 
   .profile__name {
-    font-size: 22px;
-    font-weight: 500;
-    margin: 0;
-    color: #ffffff;
-  }
-
-  .profile__edit-button {
-    width: 18px;
-    height: 18px;
-    background: transparent url("../images/Vector.svg") center/contain no-repeat;
-    background-size: 12px 12px;
-    border: 1px solid #ffffff;
-    cursor: pointer;
-    padding: 0;
+    text-align: left;
   }
 
   .profile__description {
-    grid-area: description;
-    font-size: 14px;
-    font-weight: 400;
-    margin: 0;
-    color: #ffffff;
+    width: auto;
     text-align: left;
   }
 
@@ -164,16 +136,15 @@
     grid-area: add;
     width: 150px;
     height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    border-radius: 2px;
-    border: 2px solid #ffffff;
-    background-color: transparent;
-    color: #ffffff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
     margin: 0;
+    align-self: center;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .profile {
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
