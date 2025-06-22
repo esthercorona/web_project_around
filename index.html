@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alrededor de Japón</title>
+  <link rel="stylesheet" href="vendor/normalize.css">
+  <link rel="stylesheet" href="pages/index.css">
+</head>
+
+<body>
+  <header class="header">
+  <div class="header__container">
+    <img src="./images/Around_Japan.svg" alt="Around Japan" class="logo_header">
+  </div>
+  <img src="./images/Line.jpg" alt="Línea divisoria" class="header__line">
+</header>
+
+
+  <main class="main">
+    
+<section class="profile">
+  <div class="profile__container">
+    
+    <div class="profile__avatar-wrapper">
+      <img src="./images/IMG_1325.jpeg" alt="Profile photo" class="profile__avatar">
+    </div>
+
+    <div class="profile__info">
+      <div class="profile__title-row">
+        <h1 class="profile__name">Elizabeth Corona</h1>
+        <button class="profile__edit-button" aria-label="Edit profile"></button>
+      </div>
+      <p class="profile__description">Amante de los viajes</p>
+    </div>
+
+    <button class="profile__add-button" type="button">+</button>
+
+  </div>
+</section>
+
+
+<section class="memories">
+  <div class="memories__container">
+    <div class="memories__item">
+      <img src="./images/Foto_1.jpeg" alt="Kinkaku-ji, Kioto" class="memories__image">
+      <div class="memories__info">
+        <h2 class="memories__title">Kinkaku-ji, Kioto</h2>
+        <div class="memories__icon"></div>
+      </div>
+    </div>
+    <div class="memories__item">
+      <img src="./images/Foto_2.JPG" alt="Dōtonbori, Osaka" class="memories__image">
+      <div class="memories__info">
+        <h2 class="memories__title">Dōtonbori, Osaka</h2>
+        <div class="memories__icon"></div>
+      </div>
+    </div>
+    <div class="memories__item">
+      <img src="./images/Foto_3.JPG" alt="Omoide Yokocho, Shinjuku" class="memories__image">
+      <div class="memories__info">
+        <h2 class="memories__title">Omoide Yokocho, Shinjuku</h2>
+        <div class="memories__icon"></div>
+      </div>
+    </div>
+    <div class="memories__item">
+      <img src="./images/Foto_4.jpeg" alt="Tokyo Tower" class="memories__image">
+      <div class="memories__info">
+        <h2 class="memories__title">Tokyo Tower</h2>
+        <div class="memories__icon"></div>
+      </div>
+    </div>
+    <div class="memories__item">
+      <img src="./images/Foto_5.JPG" alt="Sensō-ji, Tokio" class="memories__image">
+      <div class="memories__info">
+        <h2 class="memories__title">Sensō-ji, Tokio</h2>
+        <div class="memories__icon"></div>
+      </div>
+    </div>
+    <div class="memories__item">
+      <img src="./images/Foto_6.JPG" alt="Kabukichō, Tokio" class="memories__image">
+      <div class="memories__info">
+        <h2 class="memories__title">Kabukichō, Tokio</h2>
+        <div class="memories__icon"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main> 
+
+<div class="modal" id="edit-profile-modal">
+  <div class="modal__content">
+    <button class="modal__close-button" aria-label="Cerrar formulario"></button>
+    <h2 class="modal__title">Editar perfil</h2>
+    <form class="modal__form" name="edit-profile">
+      <input type="text" name="name" placeholder="Nombre" class="modal__input" required>
+      <input type="text" name="about" placeholder="Acerca de mí" class="modal__input" required>
+      <button type="submit" class="modal__save-button">Guardar</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="add-memory-modal">
+  <div class="modal__content">
+    <button class="modal__close-button" aria-label="Cerrar formulario"></button>
+    <h2 class="modal__title">Nuevo recuerdo</h2>
+    <form class="modal__form" name="add-memory">
+      <textarea name="place" placeholder="¿Qué estás pensando?" class="modal__input" required></textarea>
+
+      <button type="button" class="modal__upload-button">
+        <img src="./images/upload.svg" alt="Subir imagen" class="modal__upload-icon">
+        Subir imagen
+      </button>
+
+      <button type="submit" class="modal__save-button">Compartir</button>
+    </form>
+  </div>
+</div>
+
+
+
+   <footer class="footer">
+        <p>&copy; 2025. Around Japan</p>
+      </footer>
+
+<script src="./index.js"></script>
+
+</body>
+</html>
+
