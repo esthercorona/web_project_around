@@ -37,20 +37,37 @@
 
 .modal__close-button {
   position: absolute;
-  top: -40px;
-  right: -40px;
+  top: -36px;
+  right: -36px;
   width: 40px;
   height: 40px;
-  background-color: transparent;
-  background-image: url("data:image/svg+xml,%3Csvg fill='white' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.3 5.71a1 1 0 0 0-1.42 0L12 10.59 7.12 5.7a1 1 0 0 0-1.41 1.42L10.59 12l-4.88 4.88a1 1 0 1 0 1.41 1.41L12 13.41l4.88 4.88a1 1 0 0 0 1.42-1.41L13.41 12l4.89-4.88a1 1 0 0 0 0-1.41z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 24px 24px;
+  background-color: rgba(0, 0, 0, 0.5);
   border: none;
+  border-radius: 50%;
   cursor: pointer;
   z-index: 1001;
 }
 
+/* Dibuja la X con pseudoelementos */
+.modal__close-button::before,
+.modal__close-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background-color: white;
+  transform-origin: center;
+}
+
+.modal__close-button::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.modal__close-button::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
 
 .modal__title {
   font-size: 18px;
