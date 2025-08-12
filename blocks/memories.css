@@ -85,8 +85,6 @@
   background-image: url("../images/corazoncito-activo.svg");
 }
 
-
-/* Responsive layout for .memories section */
 .memories {
   display: flex;
   justify-content: center;

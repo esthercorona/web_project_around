@@ -5,6 +5,7 @@
 }
 
 body {
+  min-width: 320px;  /*pendiente*/  
   background-color: #000000;
   color: #ffffff;
   line-height: 1.6;

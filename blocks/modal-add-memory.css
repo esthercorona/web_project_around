@@ -38,7 +38,8 @@
   z-index: 1001;
 }
 
-.modal__title {
+.modal__title { /*revisar color*/
+  color: black;
   font-size: 18px;
   font-weight: 700;
   margin: 0 0 20px;
