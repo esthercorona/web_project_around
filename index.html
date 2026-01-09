@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alrededor de Japón</title>
+    <link rel="stylesheet" href="vendor/normalize.css" />
+    <link rel="stylesheet" href="src/page/index.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <img
+          src="./images/Around_Japan.svg"
+          alt="Around Japan"
+          class="logo logo_header"
+        />
+      </div>
+      <img src="./images/Line.jpg" alt="Línea divisoria" class="header__line" />
+    </header>
+
+    <main class="main">
+      <section class="profile">
+        <div class="profile__container">
+          <div class="profile__avatar-wrapper">
+            <img
+              src="./images/IMG_1325.jpeg"
+              alt="Profile photo"
+              class="profile__avatar"
+            />
+          </div>
+
+          <div class="profile__info">
+            <div class="profile__title-row">
+              <h1 class="profile__name">Elizabeth Corona</h1>
+              <button
+                class="profile__edit-button"
+                aria-label="Edit profile"
+              ></button>
+            </div>
+            <p class="profile__description">Amante de los viajes</p>
+          </div>
+
+          <button class="profile__add-button" type="button">+</button>
+        </div>
+      </section>
+
+      <section class="memories">
+        <div class="memories__container"></div>
+      </section>
+
+      <template id="memory-template">
+        <div class="memories__item">
+          <div class="memories__image-wrapper">
+            <img class="memories__image" src="" alt="" />
+            <div class="memories__overlay">
+              <button
+                class="memories__delete-button"
+                aria-label="Eliminar recuerdo"
+                type="button"
+              >
+                <img
+                  src="./images/Trash.svg"
+                  alt="Eliminar"
+                  class="memories__delete-icon"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="memories__info">
+            <h2 class="memories__title"></h2>
+            <div class="memories__actions">
+              <button
+                class="memories__like"
+                type="button"
+                aria-label="Me gusta"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </template>
+    </main>
+
+    <div class="modal" id="edit-profile-modal">
+      <div class="modal__content">
+        <button
+          class="modal__close-button"
+          aria-label="Cerrar formulario"
+        ></button>
+        <h2 class="modal__title">Editar perfil</h2>
+        <form class="modal__form" name="edit-profile">
+          <input
+            type="text"
+            name="name"
+            placeholder="Nombre"
+            class="modal__input"
+            required
+            minlength="2"
+            maxlength="40"
+          />
+          <span class="modal__input-error modal__input-error_name"></span>
+          <input
+            type="text"
+            name="about"
+            placeholder="Acerca de mí"
+            class="modal__input"
+            required
+            minlength="2"
+            maxlength="200"
+          />
+          <span class="modal__input-error modal__input-error_about"></span>
+          <button type="submit" class="modal__save-button">Guardar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="add-memory-modal">
+      <div class="modal__content">
+        <button
+          class="modal__close-button"
+          aria-label="Cerrar formulario"
+        ></button>
+        <h2 class="modal__title">Nuevo recuerdo</h2>
+        <form class="modal__form" name="add-memory">
+          <input
+            type="text"
+            name="place"
+            placeholder="Nombre del lugar o recuerdo"
+            class="modal__input"
+            required
+            minlength="2"
+            maxlength="30"
+          />
+          <span class="modal__input-error modal__input-error_place"></span>
+          <input
+            type="url"
+            name="image"
+            placeholder="URL de la imagen"
+            class="modal__input"
+            required
+          />
+          <span class="modal__input-error modal__input-error_image"></span>
+          <button type="submit" class="modal__save-button">Guardar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="image-preview-modal">
+      <div class="modal__content modal__content--image">
+        <button class="modal__close-button" aria-label="Cerrar imagen"></button>
+        <img src="" alt="" class="modal__preview-image" />
+        <p class="modal__caption"></p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2025. Around Japan</p>
+    </footer>
+
+    <script type="module" src="./src/page/index.js"></script>
+  </body>
+</html>

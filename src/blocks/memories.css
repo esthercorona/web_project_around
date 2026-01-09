@@ -1,0 +1,197 @@
+.memories {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+.memories__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 880px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.memories__item {
+  width: 282px;
+  height: 361px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.memories__item:hover {
+  transform: translateY(-5px);
+}
+
+.memories__image-wrapper {
+  position: relative;
+  width: 282px;
+  height: 282px;
+  overflow: hidden;
+}
+
+.memories__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.memories__image:hover {
+  transform: scale(1.05);
+}
+
+.memories__overlay {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.memories__item:hover .memories__overlay {
+  opacity: 1;
+}
+
+.memories__delete-button {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.memories__delete-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.memories__delete-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.memories__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 20px;
+  background: white;
+  flex: 1;
+}
+
+.memories__title {
+  font-family: Inter, sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: calc(100% - 40px);
+  color: #000;
+}
+
+.memories__actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.memories__like {
+  width: 22px;
+  height: 19px;
+  background-image: url("../../images/corazoncito.svg");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.memories__like:hover {
+  opacity: 0.5;
+  transform: scale(1.1);
+}
+
+.memories__like:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.memories__like_active {
+  background-image: url("../../images/corazoncito-activo.svg");
+}
+
+.memories__like_active:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.memories__delete {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../images/Trash.svg");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.memories__delete:hover {
+  opacity: 0.6;
+  transform: scale(1.1);
+}
+
+.memories__delete:focus {
+  outline: 2px solid #ff4757;
+  outline-offset: 2px;
+}
+
+@media screen and (min-width: 758px) {
+  .memories__container {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .memories__container {
+    margin: 0 auto;
+  }
+}
+
+.memories__image {
+  background: #f0f0f0;
+}
+
+.memories__image[src=""],
+.memories__image:not([src]) {
+  background: #f0f0f0
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0f0f0"/><text x="50" y="50" text-anchor="middle" dy="0.3em" fill="%23999">📷</text></svg>')
+    center/50px no-repeat;
+}
