@@ -28,7 +28,15 @@
               src="./images/IMG_1325.jpeg"
               alt="Profile photo"
               class="profile__avatar"
+              id="profile-avatar"
             />
+            <div class="profile__avatar-overlay">
+              <button
+                class="profile__avatar-edit-button"
+                aria-label="Editar foto de perfil"
+                type="button"
+              ></button>
+            </div>
           </div>
 
           <div class="profile__info">
@@ -151,6 +159,37 @@
         <button class="modal__close-button" aria-label="Cerrar imagen"></button>
         <img src="" alt="" class="modal__preview-image" />
         <p class="modal__caption"></p>
+      </div>
+    </div>
+
+    <div class="modal" id="edit-avatar-modal">
+      <div class="modal__content">
+        <button
+          class="modal__close-button"
+          aria-label="Cerrar formulario"
+        ></button>
+        <h2 class="modal__title">Cambiar foto de perfil</h2>
+        <form class="modal__form" name="edit-avatar">
+          <input
+            type="url"
+            name="avatar"
+            placeholder="Enlace a la imagen"
+            class="modal__input"
+            required
+          />
+          <span class="modal__input-error modal__input-error_avatar"></span>
+          <button type="submit" class="modal__save-button">Guardar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="delete-confirmation-modal">
+      <div class="modal__content">
+        <button class="modal__close-button" aria-label="Cerrar"></button>
+        <h2 class="modal__title">¿Estás seguro/a?</h2>
+        <form class="modal__form" name="delete-confirmation">
+          <button type="submit" class="modal__save-button">Sí</button>
+        </form>
       </div>
     </div>
 
