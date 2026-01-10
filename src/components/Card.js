@@ -1,11 +1,5 @@
 export default class Card {
-  constructor(
-    data,
-    templateSelector,
-    handleCardClick,
-    handleDeleteClick,
-    handleLikeClick
-  ) {
+  constructor(data, templateSelector, handleCardClick, handleDeleteClick, handleLikeClick) {
     this._name = data.name;
     this._link = data.link;
     this._id = data._id || null;
@@ -84,6 +78,7 @@ export default class Card {
     this._image.alt = this._name;
     this._title.textContent = this._name;
 
+    // Mostrar estado inicial del like si viene del servidor
     if (this._isLiked) {
       this._likeButton.classList.add("memories__like_active");
     }

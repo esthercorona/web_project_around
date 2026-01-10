@@ -31,6 +31,29 @@ const hasValidToken =
 
 let currentUserId = null;
 
+function renderLoading(button, isLoading, loadingText = "Guardando...") {
+  if (isLoading) {
+    button.textContent = loadingText;
+    button.disabled = true;
+  } else {
+    const form = button.closest(".modal__form");
+    const formName = form ? form.getAttribute("name") : null;
+
+    if (formName === "edit-profile") {
+      button.textContent = "Guardar";
+    } else if (formName === "add-memory") {
+      button.textContent = "Guardar";
+    } else if (formName === "edit-avatar") {
+      button.textContent = "Guardar";
+    } else if (formName === "delete-confirmation") {
+      button.textContent = "Sí";
+    } else {
+      button.textContent = "Guardar";
+    }
+    button.disabled = false;
+  }
+}
+
 const profileEditButton = document.querySelector(".profile__edit-button");
 const addMemoryButton = document.querySelector(".profile__add-button");
 const avatarEditButton = document.querySelector(".profile__avatar-edit-button");
@@ -60,6 +83,11 @@ function createCard(data) {
 
   const handleDeleteClick = (cardId) => {
     deleteConfirmPopup.setSubmitAction(() => {
+      const submitButton = deleteConfirmPopup._popup.querySelector(
+        ".modal__save-button"
+      );
+      renderLoading(submitButton, true, "Eliminando...");
+
       if (hasValidToken) {
         api
           .deleteCard(cardId)
@@ -67,10 +95,16 @@ function createCard(data) {
             card.removeCard();
             deleteConfirmPopup.close();
           })
-          .catch((err) => console.log(`Error: ${err}`));
+          .catch((err) => console.log(`Error: ${err}`))
+          .finally(() => {
+            renderLoading(submitButton, false);
+          });
       } else {
-        card.removeCard();
-        deleteConfirmPopup.close();
+        setTimeout(() => {
+          card.removeCard();
+          deleteConfirmPopup.close();
+          renderLoading(submitButton, false);
+        }, 300);
       }
     });
     deleteConfirmPopup.open();
@@ -116,6 +150,9 @@ const cardSection = new Section(
 const editProfilePopup = new PopupWithForm(
   "#edit-profile-modal",
   (formData) => {
+    const submitButton = editProfileForm.querySelector(".modal__save-button");
+    renderLoading(submitButton, true);
+
     if (hasValidToken) {
       api
         .editProfile(formData.name, formData.about)
@@ -126,16 +163,25 @@ const editProfilePopup = new PopupWithForm(
           });
           editProfilePopup.close();
         })
-        .catch((err) => console.log(`Error: ${err}`));
+        .catch((err) => console.log(`Error: ${err}`))
+        .finally(() => {
+          renderLoading(submitButton, false);
+        });
     } else {
-      userInfo.setUserInfo({ name: formData.name, job: formData.about });
-      editProfilePopup.close();
+      setTimeout(() => {
+        userInfo.setUserInfo({ name: formData.name, job: formData.about });
+        editProfilePopup.close();
+        renderLoading(submitButton, false);
+      }, 300);
     }
   }
 );
 editProfilePopup.setEventListeners();
 
 const addMemoryPopup = new PopupWithForm("#add-memory-modal", (formData) => {
+  const submitButton = addMemoryForm.querySelector(".modal__save-button");
+  renderLoading(submitButton, true, "Creando...");
+
   if (hasValidToken) {
     api
       .addCard(formData.place, formData.image)
@@ -145,24 +191,33 @@ const addMemoryPopup = new PopupWithForm("#add-memory-modal", (formData) => {
         addMemoryPopup.close();
         addMemoryValidator.resetValidation();
       })
-      .catch((err) => console.log(`Error: ${err}`));
+      .catch((err) => console.log(`Error: ${err}`))
+      .finally(() => {
+        renderLoading(submitButton, false);
+      });
   } else {
-    const newCard = createCard({
-      name: formData.place,
-      link: formData.image,
-      _id: `local-${Date.now()}`,
-      owner: "local-user",
-      isLiked: false,
-    });
-    cardSection.addItem(newCard);
-    addMemoryPopup.close();
-    addMemoryValidator.resetValidation();
+    setTimeout(() => {
+      const newCard = createCard({
+        name: formData.place,
+        link: formData.image,
+        _id: `local-${Date.now()}`,
+        owner: "local-user",
+        isLiked: false,
+      });
+      cardSection.addItem(newCard);
+      addMemoryPopup.close();
+      addMemoryValidator.resetValidation();
+      renderLoading(submitButton, false);
+    }, 300);
   }
 });
 addMemoryPopup.setEventListeners();
 
 // Editar
 const editAvatarPopup = new PopupWithForm("#edit-avatar-modal", (formData) => {
+  const submitButton = editAvatarForm.querySelector(".modal__save-button");
+  renderLoading(submitButton, true);
+
   if (hasValidToken) {
     api
       .updateAvatar(formData.avatar)
@@ -170,10 +225,16 @@ const editAvatarPopup = new PopupWithForm("#edit-avatar-modal", (formData) => {
         userInfo.setAvatar(userData.avatar);
         editAvatarPopup.close();
       })
-      .catch((err) => console.log(`Error: ${err}`));
+      .catch((err) => console.log(`Error: ${err}`))
+      .finally(() => {
+        renderLoading(submitButton, false);
+      });
   } else {
-    userInfo.setAvatar(formData.avatar);
-    editAvatarPopup.close();
+    setTimeout(() => {
+      userInfo.setAvatar(formData.avatar);
+      editAvatarPopup.close();
+      renderLoading(submitButton, false);
+    }, 300);
   }
 });
 editAvatarPopup.setEventListeners();
